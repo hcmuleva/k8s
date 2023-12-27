@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: react-app-ingress
+spec:
+  rules:
+    - host: react-app.example.com  # Update this with your desired domain
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: react-app-service
+                port:
+                  number: 8082  # Use the port configured in your Service
